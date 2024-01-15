@@ -1,5 +1,6 @@
-import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, styled } from "@mui/material"
+import { Card, CardContent, CardHeader, CardMedia, Typography, styled, Link } from "@mui/material";
 import { Product } from "../../../models/product";
+import { Link as RouterLink } from "react-router-dom";
 
 interface Props {
   product: Product;
@@ -14,7 +15,7 @@ const StyledCardHeader = styled(CardHeader)`
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <>
+    <Link component={RouterLink} to={`/catalog/${product.id}`} style={{ textDecoration: 'none' }}>
       <Card style={{ textAlign: "center" }}>
         <CardMedia
           sx={{ height: 400, borderRadius: '0px'}}
@@ -27,7 +28,7 @@ const ProductCard = ({ product }: Props) => {
               variant="h6"
               sx={{
                 fontWeight: 'bold',
-                mb: -2,
+                mb: -3,
                 fontFamily: "'Questrial', sans-serif",
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
@@ -46,12 +47,8 @@ const ProductCard = ({ product }: Props) => {
             {product.brand} / {product.category}
           </Typography>
         </CardContent>
-        <CardActions sx={{display: "flex", justifyContent: "space-evenly", mb: 1}}>
-          <Button size="small" variant="contained">Add to basket</Button>
-          <Button size="small" variant="contained">View</Button>
-        </CardActions>
       </Card>
-    </>
+    </Link>
   );
 }
 
