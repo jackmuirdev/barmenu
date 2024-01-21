@@ -9,7 +9,7 @@ const Footer = ({ darkMode }: Props) => {
 
   return (
     <>
-      <BottomNavigation sx={{ mt: 3, backgroundColor: darkMode ? "#333" : "#f5f5f5", width: "100%" }}>
+      <BottomNavigation sx={{ mt: '80vh', backgroundColor: darkMode ? "#333" : "#f5f5f5", width: "100%" }}>
         <Typography sx={{ mt: 2 }}>
           &copy; {currentYear} Studio 6. All Rights Reserved.
         </Typography>

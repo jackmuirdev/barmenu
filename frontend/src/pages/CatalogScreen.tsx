@@ -1,22 +1,24 @@
 import { Product } from "../models/product"
 import ProductList from "../components/layout/catalog-page/ProductList";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosApi from "../api/AxiosApi";
+import NotFound from "./errors/NotFoundScreen";
+import Loading from "../components/common/Loading";
 
 const CatalogScreen = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/products')
-      .then(res => setProducts(res.data))
+    axiosApi.Catalog.list()
+      .then(products => setProducts(products))
       .catch(error => console.log(error))
       .finally(() => setLoading(false));
   }, [])
 
-  if (loading) return <h3>Loading...</h3>
+  if (loading) return <Loading />
 
-  if (!products) return <h3>Products not found</h3>
+  if (!products) return <NotFound />
   
   return (
   <>
