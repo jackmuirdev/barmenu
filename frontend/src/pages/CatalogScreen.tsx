@@ -1,22 +1,20 @@
-import { Product } from "../models/product"
 import ProductList from "../components/layout/catalog-page/ProductList";
-import { useState, useEffect } from "react";
-import axiosApi from "../api/AxiosApi";
+import { useEffect } from "react";
 import NotFound from "./errors/NotFoundScreen";
 import Loading from "../components/common/Loading";
+import { useAppDispatch, useAppSelector } from "../store/configureStore";
+import { fetchProductsAsync, productSelectors } from "../slices/catalogSlice";
 
 const CatalogScreen = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const products = useAppSelector(productSelectors.selectAll)
+  const {productsLoaded, status} = useAppSelector(state => state.catalog);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    axiosApi.Catalog.list()
-      .then(products => setProducts(products))
-      .catch(error => console.log(error))
-      .finally(() => setLoading(false));
-  }, [])
+    if (!productsLoaded) dispatch(fetchProductsAsync());
+  }, [productsLoaded, dispatch]);
 
-  if (loading) return <Loading />
+  if (status.includes('pending')) return <Loading />
 
   if (!products) return <NotFound />
   
