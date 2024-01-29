@@ -1,11 +1,10 @@
 import { Card, CardContent, CardHeader, CardMedia, Typography, styled, CardActions } from "@mui/material";
 import { Product } from "../../../models/product";
 import { Link as RouterLink } from "react-router-dom";
-import { useState } from "react";
-import axiosApi from "../../../api/AxiosApi";
 import { LoadingButton } from "@mui/lab";
-import { useStoreContext } from "../../../context/StoreContext";
 import { currencyFormat } from "../../../util/util";
+import { useAppDispatch, useAppSelector } from "../../../store/configureStore";
+import { addBasketItemAsync } from "../../../slices/basketSlice";
 
 interface Props {
   product: Product;
@@ -19,16 +18,8 @@ const StyledCardHeader = styled(CardHeader)`
 `;
 
 const ProductCard = ({ product }: Props) => {
-  const [loading, setLoading] = useState(false);
-  const {setBasket} = useStoreContext();
-
-  function handleAddItem(productId: number) {
-    setLoading(true);
-    axiosApi.Basket.addItem(productId)
-      .then(basket => setBasket(basket))
-      .catch(error => console.log(error))
-      .finally(() => setLoading(false));
-  }
+  const {status} = useAppSelector(state => state.basket);
+  const dispatch = useAppDispatch();
 
   return (
       <Card style={{ textAlign: "center" }}>
@@ -67,8 +58,8 @@ const ProductCard = ({ product }: Props) => {
         <CardActions>
           <LoadingButton 
             size="small" 
-            onClick={() => handleAddItem(product.id)} 
-            loading={loading} 
+            onClick={() => dispatch(addBasketItemAsync({productId: product.id}))} 
+            loading={status.includes('pendingAddItem' + product.id)} 
             sx={{
               backgroundColor: "red",
               padding: "10px",
