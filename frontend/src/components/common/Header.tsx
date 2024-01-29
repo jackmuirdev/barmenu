@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Badge, Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
 import Switch from "../feature/Switch";
 import { Link } from "react-router-dom";
 import { ShoppingCart, AccountCircle } from "@mui/icons-material";
 import { Theme } from '@mui/material/styles';
+import { useStoreContext } from '../../context/StoreContext';
 
 interface Props {
   darkMode: boolean;
@@ -11,7 +12,9 @@ interface Props {
 }
 
 const Header = ({ darkMode, handleThemeChange }: Props) => {
-  const [DropMenuItem, setDropMenuItem] = React.useState<null | HTMLElement>(null);
+  const {basket} = useStoreContext();
+  const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0);
+  const [DropMenuItem, setDropMenuItem] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setDropMenuItem(event.currentTarget);
@@ -29,8 +32,8 @@ const Header = ({ darkMode, handleThemeChange }: Props) => {
           <img src="../../../images/logo.png" style={{ height: "150px", width: "400px", margin: "-25px", marginBottom: "-35px" }} alt="Logo" />
         </Link>
         <Box display='flex' alignItems='center'>
-          <IconButton component={Link} to='/' size="large" edge='start' color='inherit' sx={{ mr: 2 }}>
-            <Badge badgeContent='4' color='secondary'>
+          <IconButton component={Link} to='/basket' size="large" edge='start' color='inherit' sx={{ mr: 2 }}>
+            <Badge badgeContent={itemCount} color='secondary'>
               <ShoppingCart sx={{ fontSize: (theme: Theme) => theme.typography.fontSize * 3 }} />
             </Badge>
           </IconButton>

@@ -1,10 +1,10 @@
-using API.Data;
-using API.Entities;
+using backend.Data;
+using backend.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend.Controllers;
 
-namespace API.Controllers;
+namespace backend.Controllers;
 public class ProductsController : BaseApiController
 {
     private readonly StoreContext _context;

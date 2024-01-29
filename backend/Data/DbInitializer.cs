@@ -1,6 +1,6 @@
-using API.Entities;
+using backend.Entities;
 
-namespace API.Data
+namespace backend.Data
 {
     public static class DbInitializer
     {

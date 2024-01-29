@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using backend.Controllers;
 
-namespace API.Controllers;
+namespace backend.Controllers;
 
 public class BuggyController : BaseApiController
 {
