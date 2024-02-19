@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { AppBar, Badge, Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
+import { AppBar, Badge, Box, IconButton, Toolbar } from "@mui/material";
 import Switch from "../feature/Switch";
 import { Link } from "react-router-dom";
 import { ShoppingCart, AccountCircle } from "@mui/icons-material";
 import { Theme } from '@mui/material/styles';
 import { useAppSelector } from '../../store/configureStore';
+import SignedOutMenu from '../layout/header-component/SignedOutMenu';
+import SignedInMenu from '../layout/header-component/SignedInMenu';
 
 interface Props {
   darkMode: boolean;
@@ -13,6 +15,7 @@ interface Props {
 
 const Header = ({ darkMode, handleThemeChange }: Props) => {
   const {basket} = useAppSelector(state => state.basket);
+  const {user} = useAppSelector(state => state.account);
   const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0);
   const [DropMenuItem, setDropMenuItem] = useState<null | HTMLElement>(null);
 
@@ -44,29 +47,11 @@ const Header = ({ darkMode, handleThemeChange }: Props) => {
               <AccountCircle sx={{ fontSize: (theme: Theme) => theme.typography.fontSize * 3 }} />
             </Badge>
           </IconButton>
-          <Menu anchorEl={DropMenuItem} open={Boolean(DropMenuItem)} onClose={handleClose}>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              Profile
-            </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              My Orders
-            </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              Orders
-            </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              Products
-            </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              Users
-            </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              Sign In
-            </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/">
-              Sign Out
-            </MenuItem>
-          </Menu>
+          {user ? (
+            <SignedInMenu anchorEl={DropMenuItem} handleClose={handleClose} />
+          ) : (
+            <SignedOutMenu anchorEl={DropMenuItem} handleClose={handleClose} />
+          )}
         </Box>
       </Toolbar>
     </AppBar>

@@ -8,6 +8,9 @@ import ServerErrorScreen from "../pages/errors/ServerErrorScreen"
 import NotFoundScreen from "../pages/errors/NotFoundScreen"
 import BasketScreen from "../pages/BasketScreen"
 import CheckoutScreen from "../pages/CheckoutScreen"
+import LoginScreen from "../pages/LoginScreen"
+import RegisterScreen from "../pages/RegisterScreen"
+import PrivateRoutes from "./PrivateRoutes"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,10 +20,15 @@ const router = createBrowserRouter(
       <Route path="/catalog/:id" element={<OneProductScreen />} />
       <Route path="/contact" element={<ContactScreen />} />
       <Route path="/basket" element={<BasketScreen />} />
-      <Route path="/checkout" element={<CheckoutScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
       <Route path="/server-error" element={<ServerErrorScreen />} />
       <Route path="/not-found" element={<NotFoundScreen />} />
       <Route path="/*" element={<Navigate replace to="/not-found" />} />
+
+      <Route path="" element={<PrivateRoutes />}>
+        <Route path="/checkout" element={<CheckoutScreen />} />
+      </Route>
     </Route>
   )
 )

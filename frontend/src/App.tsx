@@ -5,28 +5,28 @@ import { Outlet } from "react-router-dom";
 import DarkMode from "./components/feature/DarkMode";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState } from "react";
-import axiosApi from "./api/AxiosApi";
-import {getCookie} from "./util/util";
+import { useCallback, useEffect, useState } from "react";
 import Loading from "./components/common/Loading";
-import { setBasket } from "./slices/basketSlice";
+import { fetchBasketAsync } from "./slices/basketSlice";
 import { useAppDispatch } from "./store/configureStore";
+import { fetchCurrentUser } from "./slices/accountSlice";
 
 function App() {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const buyerId = getCookie('buyerId');
-    if (buyerId) {
-      axiosApi.Basket.get()
-        .then(basket => dispatch(setBasket(basket)))
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false)
+  const initApp = useCallback(async () => {
+    try {
+      await dispatch(fetchCurrentUser());
+      await dispatch(fetchBasketAsync());
+    } catch (error) {
+      console.log(error);
     }
-  }, [dispatch])
+  }, [dispatch]);
+
+  useEffect(() => {
+    initApp().then(() => setLoading(false));
+  }, [initApp])
 
   const { theme, darkMode, handleThemeChange } = DarkMode();
 
