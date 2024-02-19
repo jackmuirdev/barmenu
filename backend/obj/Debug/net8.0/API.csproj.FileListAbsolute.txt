@@ -254,3 +254,15 @@
 /Users/jackmuir/Desktop/Bar Project/backend/obj/Debug/net8.0/API.pdb
 /Users/jackmuir/Desktop/Bar Project/backend/obj/Debug/net8.0/API.genruntimeconfig.cache
 /Users/jackmuir/Desktop/Bar Project/backend/obj/Debug/net8.0/ref/API.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.AspNetCore.Metadata.dll
+/Users/jackmuir/Desktop/Bar Project/backend/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
