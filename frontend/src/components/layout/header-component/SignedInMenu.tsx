@@ -33,7 +33,7 @@ export default function SignedInMenu({ anchorEl: anchorElProp, handleClose: hand
           <MenuItem onClick={handleClose} component={Link} to="/">
             Profile
           </MenuItem>
-          <MenuItem onClick={handleClose} component={Link} to="/">
+          <MenuItem onClick={handleClose} component={Link} to="/orders">
             My Orders
           </MenuItem>
           <MenuItem onClick={() => {

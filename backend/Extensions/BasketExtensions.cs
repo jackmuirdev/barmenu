@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.DTOs;
 using backend.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Extensions
 {
@@ -26,6 +27,11 @@ namespace backend.Extensions
                     Category = item.Product.Category
                 }).ToList()
             };
+        }
+
+        public static IQueryable<Basket> RetrieveBasketWithItems(this IQueryable<Basket> query, string buyerId)
+        {
+            return query.Include(i => i.Items).ThenInclude(p => p.Product).Where(x => x.BuyerId == buyerId);
         }
     }
 }

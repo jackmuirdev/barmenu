@@ -11,6 +11,7 @@ import CheckoutScreen from "../pages/CheckoutScreen"
 import LoginScreen from "../pages/LoginScreen"
 import RegisterScreen from "../pages/RegisterScreen"
 import PrivateRoutes from "./PrivateRoutes"
+import OrderScreen from "../pages/OrderScreen"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
 
       <Route path="" element={<PrivateRoutes />}>
         <Route path="/checkout" element={<CheckoutScreen />} />
+        <Route path="/orders" element={<OrderScreen />} />
       </Route>
     </Route>
   )

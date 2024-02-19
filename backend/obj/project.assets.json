@@ -3485,6 +3485,7 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.1",
       "Microsoft.AspNetCore.Authorization >= 8.0.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.0-rc.1.23421.29",
+      "Microsoft.EntityFrameworkCore >= 8.0.0-rc.1.23419.6",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0-rc.1.23419.6",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.0-rc.1.23419.6",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -3539,6 +3540,10 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.0-rc.1.23421.29, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.0-rc.1.23419.6, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

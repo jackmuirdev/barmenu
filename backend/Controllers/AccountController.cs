@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace backend.Controllers;
 
@@ -85,6 +87,16 @@ public class AccountController : BaseApiController
             Token = await _tokenService.GenerateToken(user),
             Basket = userBasket?.MapBasketToDto()
         };
+    }
+
+    [Authorize]
+    [HttpGet("savedAddress")]
+    public async Task<ActionResult<UserAddress>> GetSavedAddress()
+    {
+        return await _userManager.Users
+            .Where(u => u.UserName == User.Identity.Name)
+            .Select(user => user.Address)
+            .FirstOrDefaultAsync();
     }
 
     private async Task<Basket> RetrieveBasket(string buyerId)
