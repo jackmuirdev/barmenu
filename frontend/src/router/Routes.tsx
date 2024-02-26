@@ -7,11 +7,11 @@ import ContactScreen from "../pages/ContactScreen"
 import ServerErrorScreen from "../pages/errors/ServerErrorScreen"
 import NotFoundScreen from "../pages/errors/NotFoundScreen"
 import BasketScreen from "../pages/BasketScreen"
-import CheckoutScreen from "../pages/CheckoutScreen"
 import LoginScreen from "../pages/LoginScreen"
 import RegisterScreen from "../pages/RegisterScreen"
 import PrivateRoutes from "./PrivateRoutes"
 import OrderScreen from "../pages/OrderScreen"
+import CheckoutWrapper from "../components/layout/checkout-page/CheckoutWrapper"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       <Route path="/*" element={<Navigate replace to="/not-found" />} />
 
       <Route path="" element={<PrivateRoutes />}>
-        <Route path="/checkout" element={<CheckoutScreen />} />
+        <Route path="/checkout" element={<CheckoutWrapper />} />
         <Route path="/orders" element={<OrderScreen />} />
       </Route>
     </Route>
