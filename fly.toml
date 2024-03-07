@@ -10,8 +10,9 @@ primary_region = 'lhr'
   image = 'jackmuir11/barproject:latest'
 
 [env]
+  [env]
   ASPNETCORE_URLS="http://+:8080"
-  StripeSettings__PublishableKey:"pk_test_51OleI4IOKQIgT1PnI41bvndvmKB7VGk6D2G0Gdjo1Ywh0CP436VAt3leDdWL9jvNKkqlnpeAgXBgf4twcMGSYOHC00TwWqdAJF"
+  StripeSettings__PublishableKey = "pk_test_51OleI4IOKQIgT1PnI41bvndvmKB7VGk6D2G0Gdjo1Ywh0CP436VAt3leDdWL9jvNKkqlnpeAgXBgf4twcMGSYOHC00TwWqdAJF"
 
 [http_service]
   internal_port = 8080
