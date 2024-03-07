@@ -1,7 +1,17 @@
 import styled from "@emotion/styled";
 import { Switch } from "@mui/material";
+import { Theme } from "@mui/material/styles";
+import { Palette } from "@mui/material/styles/createPalette";
 
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+interface CustomPalette extends Palette {
+  mode: 'light' | 'dark';
+}
+
+interface CustomTheme extends Theme {
+  palette: CustomPalette;
+}
+
+const MaterialUISwitch = styled(Switch)<{ theme: CustomTheme }>((props) => ({
   width: 62,
   height: 34,
   padding: 7,
@@ -19,12 +29,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+        backgroundColor: props.theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
       },
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.mode === 'dark' ? '#fff' : '#fff',
+    backgroundColor: props.theme.palette.mode === 'dark' ? '#fff' : '#fff',
     width: 32,
     height: 32,
     '&::before': {
@@ -43,7 +53,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+    backgroundColor: props.theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
     borderRadius: 20 / 2,
   },
 }));

@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for bar-project-twilight-surf-6626-nameless-shape-4250 on 2024-03-07T18:45:03Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'bar-project-twilight-surf-6626-nameless-shape-4250'
+primary_region = 'lhr'
+
+[build]
+  image = 'jackmuir11/barproject:latest'
+
+[env]
+  ASPNETCORE_URLS="http://+:8080"
+  StripeSettings__PublishableKey:"pk_test_51OleI4IOKQIgT1PnI41bvndvmKB7VGk6D2G0Gdjo1Ywh0CP436VAt3leDdWL9jvNKkqlnpeAgXBgf4twcMGSYOHC00TwWqdAJF"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

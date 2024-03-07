@@ -1,0 +1,85 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/assets/index-DvPwjcrY.js",
+      "PackagePath": "staticwebassets/assets/index-DvPwjcrY.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/assets/index-fmxpX_NB.css",
+      "PackagePath": "staticwebassets/assets/index-fmxpX_NB.css"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/Sex-on-the-Beach.webp",
+      "PackagePath": "staticwebassets/images/Cocktails/Sex-on-the-Beach.webp"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/Strawberry-Daiquiri.webp",
+      "PackagePath": "staticwebassets/images/Cocktails/Strawberry-Daiquiri.webp"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/blue-lagoon.jpeg",
+      "PackagePath": "staticwebassets/images/Cocktails/blue-lagoon.jpeg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/margarita.webp",
+      "PackagePath": "staticwebassets/images/Cocktails/margarita.webp"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/mojito.jpeg",
+      "PackagePath": "staticwebassets/images/Cocktails/mojito.jpeg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/pina-colada.jpeg",
+      "PackagePath": "staticwebassets/images/Cocktails/pina-colada.jpeg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/pornstar_martini.webp",
+      "PackagePath": "staticwebassets/images/Cocktails/pornstar_martini.webp"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/Cocktails/woo-woo.jpeg",
+      "PackagePath": "staticwebassets/images/Cocktails/woo-woo.jpeg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/bar.webp",
+      "PackagePath": "staticwebassets/images/bar.webp"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/coming-soon.jpg",
+      "PackagePath": "staticwebassets/images/coming-soon.jpg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/contact-us.webp",
+      "PackagePath": "staticwebassets/images/contact-us.webp"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/home.png",
+      "PackagePath": "staticwebassets/images/home.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/vite.svg",
+      "PackagePath": "staticwebassets/vite.svg"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

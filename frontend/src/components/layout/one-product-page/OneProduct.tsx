@@ -13,8 +13,9 @@ import { fetchProductAsync, productSelectors } from "../../../slices/catalogSlic
 const OneProduct = () => {
   const { basket, status } = useAppSelector(state => state.basket);
   const dispatch = useAppDispatch();
-  const { id } = useParams<{ id: string }>();
-  const product = useAppSelector(state => productSelectors.selectById(state, id));
+  const { id = '' } = useParams<{ id: string }>();
+  const productId = parseInt(id, 10);
+  const product = useAppSelector(state => productSelectors.selectById(state, productId));
   const {status: productStatus} = useAppSelector(state => state.catalog);
   const [quantity, setQuantity] = useState(0);
   const item = basket?.items.find(i => i.productId === product?.id);

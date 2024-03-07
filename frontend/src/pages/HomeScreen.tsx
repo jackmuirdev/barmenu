@@ -3,7 +3,7 @@ import LinksList from "../components/layout/home-page/LinksList";
 import DarkMode from "../components/feature/DarkMode";
 
 const HomeScreen = () => {
-  const { theme, darkMode, handleThemeChange } = DarkMode();
+  const { theme } = DarkMode();
 
   return (
     <div>
@@ -11,10 +11,11 @@ const HomeScreen = () => {
         <Typography variant="h2" sx={{ display: "flex", justifyContent: "center" }}>
           Welcome to Studio 6
         </Typography>
-        <LinksList darkMode={darkMode} handleThemeChange={handleThemeChange} />
+        <LinksList /> {/* Remove darkMode and handleThemeChange props */}
       </ThemeProvider>
     </div>
   );
 };
+
 
 export default HomeScreen;
