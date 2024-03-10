@@ -12,6 +12,7 @@ import RegisterScreen from "../pages/RegisterScreen"
 import PrivateRoutes from "./PrivateRoutes"
 import OrderScreen from "../pages/OrderScreen"
 import CheckoutWrapper from "../components/layout/checkout-page/CheckoutWrapper"
+import InventoryScreen from "../pages/InventoryScreen"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,10 @@ const router = createBrowserRouter(
       <Route path="" element={<PrivateRoutes />}>
         <Route path="/checkout" element={<CheckoutWrapper />} />
         <Route path="/orders" element={<OrderScreen />} />
+      </Route>
+
+      <Route path="" element={<PrivateRoutes roles={['Admin']} />}>
+        <Route path="/inventory" element={<InventoryScreen />} />
       </Route>
     </Route>
   )
