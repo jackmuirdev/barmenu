@@ -14,7 +14,7 @@ interface Props {
   theme: Theme;
 }
 
-const Header = ({ darkMode, handleThemeChange, theme }: Props) => { // Include props here
+const Header = ({ darkMode, handleThemeChange, theme }: Props) => { 
   const { basket } = useAppSelector(state => state.basket);
   const { user } = useAppSelector(state => state.account);
   const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0);
@@ -83,7 +83,7 @@ const Header = ({ darkMode, handleThemeChange, theme }: Props) => { // Include p
         </Box>
         <Box>
           {user ? (
-            <SignedInMenu anchorEl={DropMenuItem} handleClose={handleClose} />
+            <SignedInMenu anchorEl={DropMenuItem} handleClose={handleClose} user={user} />
           ) : (
             <SignedOutMenu anchorEl={DropMenuItem} handleClose={handleClose} />
           )}

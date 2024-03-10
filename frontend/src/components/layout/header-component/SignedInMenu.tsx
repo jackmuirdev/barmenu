@@ -6,13 +6,15 @@ import { Fade } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { clearBasket } from '../../../slices/basketSlice';
 import { signOut } from '../../../slices/accountSlice';
+import { User } from '../../../models/user';
 
 interface MenuProps {
   anchorEl: null | HTMLElement;
   handleClose: () => void;
+  user: User;
 }
 
-export default function SignedInMenu({ anchorEl: anchorElProp, handleClose: handleCloseProp }: MenuProps) {
+export default function SignedInMenu({ anchorEl: anchorElProp, handleClose: handleCloseProp, user }: MenuProps) {
   const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -33,6 +35,11 @@ export default function SignedInMenu({ anchorEl: anchorElProp, handleClose: hand
           <MenuItem onClick={handleClose} component={Link} to="/orders">
             My Orders
           </MenuItem>
+          {user?.roles?.includes('Admin') ? (
+          <MenuItem onClick={handleClose} component={Link} to="/inventory">
+            Inventory
+          </MenuItem>
+          ) : null}
           <MenuItem onClick={() => {
             dispatch(signOut());
             dispatch(clearBasket());
