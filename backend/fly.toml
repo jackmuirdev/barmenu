@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for barproject1 on 2024-03-11T13:15:14Z
+# fly.toml app configuration file generated for barproject on 2024-03-11T13:38:01Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'barproject1'
+app = 'barproject'
 primary_region = 'lhr'
 
 [build]
