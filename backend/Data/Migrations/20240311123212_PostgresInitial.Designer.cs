@@ -12,8 +12,8 @@ using backend.Data;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20240309123525_PublicIdAdded")]
-    partial class PublicIdAdded
+    [Migration("20240311123212_PostgresInitial")]
+    partial class PostgresInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

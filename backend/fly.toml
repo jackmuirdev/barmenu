@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for bar-project-twilight-surf-6626-nameless-shape-4250 on 2024-03-07T18:45:03Z
+# fly.toml app configuration file generated for barproject on 2024-03-11T12:53:52Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -8,12 +8,6 @@ primary_region = 'lhr'
 
 [build]
   image = 'jackmuir11/barproject:latest'
-
-[env]
-  ASPNETCORE_URLS="http://+:8080"
-  StripeSettings__PublishableKey="pk_test_51OleI4IOKQIgT1PnI41bvndvmKB7VGk6D2G0Gdjo1Ywh0CP436VAt3leDdWL9jvNKkqlnpeAgXBgf4twcMGSYOHC00TwWqdAJF"
-  Cloudinary__CloudName = "dji6ozzc4"
-  Cloudinary__ApiKey = "878862553332891"
 
 [http_service]
   internal_port = 8080
