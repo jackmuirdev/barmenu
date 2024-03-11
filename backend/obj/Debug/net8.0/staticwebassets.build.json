@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "69Gt8dlnvZ6ewcJdDdldoi4K6P1NUl+8DfRpLeLca14=",
+  "Hash": "TvuSEOW1aCjMjDhAyilTvWEQTyYj3C2fo7fldPXB3I0=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/index-fmxpX_NB.css"
+    },
+    {
+      "Identity": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/assets/index-tTDrYZil.js",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/",
+      "BasePath": "_content/API",
+      "RelativePath": "assets/index-tTDrYZil.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/index-tTDrYZil.js"
     },
     {
       "Identity": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/images/bar.webp",
