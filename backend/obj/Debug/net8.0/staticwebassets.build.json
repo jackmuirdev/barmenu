@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TvuSEOW1aCjMjDhAyilTvWEQTyYj3C2fo7fldPXB3I0=",
+  "Hash": "D9s79qEEKP+pSNOQCdzCF72cjpLICP//+CmzX+jvd20=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/index-0Zrph1gx.js"
+    },
+    {
+      "Identity": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/assets/index-CMicajKS.js",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/",
+      "BasePath": "_content/API",
+      "RelativePath": "assets/index-CMicajKS.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/index-CMicajKS.js"
     },
     {
       "Identity": "/Users/jackmuir/Desktop/Bar Project/backend/wwwroot/assets/index-DvPwjcrY.js",
