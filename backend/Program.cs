@@ -4,16 +4,12 @@ using backend.Data;
 using backend.Entities;
 using backend.Middleware;
 using backend.Services;
+using backend.RequestHelpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,7 +64,7 @@ else
     var pgPass = pgUserPass.Split(":")[1];
     var pgHost = pgHostPort.Split(":")[0];
     var pgPort = pgHostPort.Split(":")[1];
-    var updatedHost = pgHost.Replace(“flycast”, “internal”);
+    var updatedHost = pgHost.Replace("flycast", "internal");
 
     connString = $"Server={updatedHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};";
 }
