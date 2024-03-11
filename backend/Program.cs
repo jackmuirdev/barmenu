@@ -1,22 +1,26 @@
+using System;
 using System.Text;
 using backend.Data;
 using backend.Entities;
 using backend.Middleware;
 using backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using backend.RequestHelpers;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -51,22 +55,7 @@ if (builder.Environment.IsDevelopment())
     connString = builder.Configuration.GetConnectionString("DefaultConnection");
 else
 {
-    // Use connection string provided at runtime by FlyIO.
-    var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-
-    // Parse connection URL to connection string for Npgsql
-    connUrl = connUrl.Replace("postgres://", string.Empty);
-    var pgUserPass = connUrl.Split("@")[0];
-    var pgHostPortDb = connUrl.Split("@")[1];
-    var pgHostPort = pgHostPortDb.Split("/")[0];
-    var pgDb = pgHostPortDb.Split("/")[1];
-    var pgUser = pgUserPass.Split(":")[0];
-    var pgPass = pgUserPass.Split(":")[1];
-    var pgHost = pgHostPort.Split(":")[0];
-    var pgPort = pgHostPort.Split(":")[1];
-    var updatedHost = pgHost.Replace("flycast", "internal");
-
-    connString = $"Server={updatedHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};";
+    connString = "Host=dpg-cnnh16821fec739bh340-a;Port=5432;Database=barprojectdb;Username=barprojectdb_user;Password=6LQTZiMCvzWqrWg4pK9Vs3C1TZ5VbOlI";
 }
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
