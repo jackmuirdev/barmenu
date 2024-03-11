@@ -12,7 +12,7 @@ using backend.Data;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20240311123212_PostgresInitial")]
+    [Migration("20240311144228_PostgresInitial")]
     partial class PostgresInitial
     {
         /// <inheritdoc />
