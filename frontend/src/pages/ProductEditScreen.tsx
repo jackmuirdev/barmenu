@@ -87,7 +87,7 @@ export default function ProductEditScreen({product, cancelEdit}: Props) {
                         </Box>
                     </Grid>
                 </Grid>
-                <Box display='flex' justifyContent='space-between' sx={{mt: 3}}>
+                <Box display='flex' justifyContent='space-between' sx={{mt: 5}}>
                     <Button onClick={cancelEdit} variant='contained' color='inherit'>Cancel</Button>
                     <LoadingButton loading={isSubmitting} type="submit" variant='contained' color='success'>Submit</LoadingButton>
                 </Box>

@@ -8,10 +8,10 @@ const HomeScreen = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Typography variant="h2" sx={{ display: "flex", justifyContent: "center" }}>
-          Welcome to Studio 6
+        <Typography variant="h2" sx={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
+          Welcome to the Cocktail Bar
         </Typography>
-        <LinksList /> {/* Remove darkMode and handleThemeChange props */}
+        <LinksList />
       </ThemeProvider>
     </div>
   );

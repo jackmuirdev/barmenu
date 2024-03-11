@@ -1,15 +1,13 @@
 import { UploadFile } from '@mui/icons-material'
-import { FormControl, FormHelperText, Typography } from '@mui/material'
-import {useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
+import { FormControl, FormHelperText, Typography, Box } from '@mui/material'
+import { useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 import { UseControllerProps, useController } from 'react-hook-form'
 
-interface Props extends UseControllerProps {
-
-}
+interface Props extends UseControllerProps {}
 
 export default function MyDropzone(props: Props) {
-  const {fieldState, field} = useController({...props, defaultValue: null})
+  const { fieldState, field } = useController({ ...props, defaultValue: null })
 
   const dzStyles = {
     display: 'flex',
@@ -17,9 +15,12 @@ export default function MyDropzone(props: Props) {
     borderColor: '#eee',
     borderRadius: '5px',
     paddingTop: '30px',
+    marginBottom: '30px',
     alignItems: 'center',
     height: 200,
-    width: 500
+    width: '100%', // Adjusted to take full width
+    maxWidth: 500, // Added maxWidth to control maximum width
+    margin: 'auto', // Center the component horizontally
   }
 
   const dzActive = {
@@ -27,20 +28,20 @@ export default function MyDropzone(props: Props) {
   }
 
   const onDrop = useCallback((acceptedFiles: any) => {
-    acceptedFiles[0] = Object.assign(acceptedFiles[0], {preview: URL.createObjectURL(acceptedFiles[0])})
+    acceptedFiles[0] = Object.assign(acceptedFiles[0], { preview: URL.createObjectURL(acceptedFiles[0]) })
     field.onChange(acceptedFiles[0])
   }, [field])
 
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <div {...getRootProps()}>
-      <FormControl style={isDragActive ? {...dzStyles, ...dzActive} : dzStyles} error={!!fieldState.error}>
+    <Box {...getRootProps()}>
+      <FormControl sx={isDragActive ? { ...dzStyles, ...dzActive } : dzStyles} error={!!fieldState.error}>
         <input {...getInputProps()} />
-        <UploadFile sx={{fontSize: '100px'}} />
+        <UploadFile sx={{ fontSize: '100px' }} />
         <Typography variant='h4'>Drop image here</Typography>
         <FormHelperText>{fieldState.error?.message}</FormHelperText>
       </FormControl>
-    </div>
+    </Box>
   )
 }

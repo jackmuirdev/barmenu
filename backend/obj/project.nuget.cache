@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cAJZKmT/FbYJ0jnXEoYXKFHcx2H5UzRZrm0YLeunVNmqNRrUwNne1TVmkykqlPm7khnM/HxvUBGR0V0hbu2/ew==",
+  "dgSpecHash": "IlxMYOxDrwdljfPWzk52NuAq4+S7qVO9s70zLsmQyjySietZUhz5oyTETuSNAkPmqL3V7A9ng97eBSJ7SOWmgA==",
   "success": true,
-  "projectFilePath": "/Users/jackmuir/Desktop/Bar Project/backend/API.csproj",
+  "projectFilePath": "/Users/jackmuir/Desktop/barmenu/backend/API.csproj",
   "expectedPackageFiles": [
     "/Users/jackmuir/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/jackmuir/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

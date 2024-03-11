@@ -7164,11 +7164,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jackmuir/Desktop/Bar Project/backend/API.csproj",
+      "projectUniqueName": "/Users/jackmuir/Desktop/barmenu/backend/API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/jackmuir/Desktop/Bar Project/backend/API.csproj",
+      "projectPath": "/Users/jackmuir/Desktop/barmenu/backend/API.csproj",
       "packagesPath": "/Users/jackmuir/.nuget/packages/",
-      "outputPath": "/Users/jackmuir/Desktop/Bar Project/backend/obj/",
+      "outputPath": "/Users/jackmuir/Desktop/barmenu/backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/jackmuir/.nuget/NuGet/NuGet.Config"

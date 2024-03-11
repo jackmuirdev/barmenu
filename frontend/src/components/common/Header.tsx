@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Badge, Box, IconButton, Toolbar, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { AppBar, Badge, Box, IconButton, Toolbar, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import Switch from "../feature/Switch";
 import { Link } from "react-router-dom";
 import { ShoppingCart, AccountCircle, Menu as MenuIcon } from "@mui/icons-material";
@@ -51,15 +51,37 @@ const Header = ({ darkMode, handleThemeChange, theme }: Props) => {
         </ListItemIcon>
         <ListItemText primary={user ? "Account" : "Sign In"} />
       </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <Badge color='secondary'>
+            <Switch theme={theme} checked={darkMode} onChange={handleThemeChange} />
+          </Badge>
+        </ListItemIcon>
+        <ListItemText primary={"Dark Mode"} />
+      </ListItem>
     </List>
   );
 
   return (
     <AppBar position="static" sx={{ mb: 4 }}>
       <Toolbar>
-        <Switch theme={theme} checked={darkMode} onChange={handleThemeChange} sx={{ mr: -5 }} /> {/* Spread props here */}
-        <Link style={{ margin: "auto", marginBottom: "0px", marginTop: "0px", color: "#fff", textDecoration: "none", fontSize: "30px" }}  to={"/"}>
-          <h1>Cocktail Menu</h1>
+        <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
+          <Switch theme={theme} checked={darkMode} onChange={handleThemeChange} sx={{ mr: -5 }} />
+        </Box>
+        <Link style={{ margin: "auto", marginBottom: "30px", marginTop: "30px", color: "#fff", textDecoration: "none" }}  to={"/"}>
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{
+              fontSize: {
+                xs: "30px",
+                sm: "40px",
+                md: "50px",
+              },
+            }}
+          >
+            Cocktail Menu
+          </Typography>
         </Link>
         <Box display={{ xs: 'none', sm: 'none', md: 'block' }}>
           <IconButton component={Link} to='/basket' size="large" edge='start' color='inherit' sx={{ mr: 2 }}>
