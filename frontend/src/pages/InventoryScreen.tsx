@@ -39,7 +39,7 @@ export default function InventoryScreen() {
     }
 
     return (
-        <>
+        <div style={{padding: "50px", marginTop: "-50px"}}>
             {editMode ? (
                 <ProductEditScreen product={selectedProduct} cancelEdit={cancelEdit} />
             ) : (
@@ -96,6 +96,6 @@ export default function InventoryScreen() {
                     }
                 </>
             )}
-        </>
+        </div>
     )
 }

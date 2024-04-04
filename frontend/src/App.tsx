@@ -36,7 +36,12 @@ function App() {
       <ToastContainer position="top-right" hideProgressBar theme="colored" />
       <CssBaseline />
       <Header theme={theme} darkMode={darkMode} handleThemeChange={handleThemeChange} />
-      <Container id="container">
+      <Container
+        id="container"
+        maxWidth={false}
+        disableGutters 
+        style={{ height: "100vh" }}
+      >
         <Outlet />
       </Container>
     </ThemeProvider>

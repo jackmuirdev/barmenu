@@ -11,7 +11,7 @@ const BasketScreen = () => {
   if (!basket) return <EmptyBasket />;
 
   return (
-    <>
+    <div style={{padding: "50px"}}>
       <BasketTable items={basket.items} />
       <Grid container>
         <Grid item xs={6} />
@@ -22,7 +22,7 @@ const BasketScreen = () => {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 }
 

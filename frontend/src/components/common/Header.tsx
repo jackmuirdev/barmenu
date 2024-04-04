@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { AppBar, Badge, Box, IconButton, Toolbar, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { AppBar, Badge, Box, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography, Grid, useMediaQuery, Button } from "@mui/material";
 import Switch from "../feature/Switch";
 import { Link } from "react-router-dom";
-import { ShoppingCart, AccountCircle, Menu as MenuIcon } from "@mui/icons-material";
+import { ShoppingCart, AccountCircle, Menu as MenuIcon, ContactPhone, Home, MenuBook, Person } from "@mui/icons-material";
 import { Theme } from '@mui/material/styles';
 import { useAppSelector } from '../../store/configureStore';
 import SignedOutMenu from '../layout/header-component/SignedOutMenu';
@@ -20,6 +20,7 @@ const Header = ({ darkMode, handleThemeChange, theme }: Props) => {
   const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0);
   const [DropMenuItem, setDropMenuItem] = useState<null | HTMLElement>(null);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+  const isSmallScreen = useMediaQuery('(max-width:800px)');
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setDropMenuItem(event.currentTarget);
@@ -35,82 +36,149 @@ const Header = ({ darkMode, handleThemeChange, theme }: Props) => {
 
   const drawerContent = (
     <List>
-      <ListItem component="button" onClick={() => { toggleDrawer(); window.location.href = '/basket'; }}>
-        <ListItemIcon>
-          <Badge badgeContent={itemCount} color='secondary'>
-            <ShoppingCart />
-          </Badge>
-        </ListItemIcon>
-        <ListItemText primary="Basket" />
-      </ListItem>
-      <ListItem component="button" onClick={handleClick}>
-        <ListItemIcon>
-          <Badge color="secondary">
-            <AccountCircle />
-          </Badge>
-        </ListItemIcon>
-        <ListItemText primary={user ? "Account" : "Sign In"} />
+      <ListItem>
+        <Button onClick={() => { toggleDrawer(); window.location.href = '/basket'; }} sx={{color: darkMode ? "#fff" : "#000"}}>
+          <ListItemIcon>
+            <Badge badgeContent={itemCount}>
+              <ShoppingCart />
+            </Badge>
+          </ListItemIcon>
+          <ListItemText primary="Basket" />
+        </Button>
       </ListItem>
       <ListItem>
-        <ListItemIcon>
-          <Badge color='secondary'>
-            <Switch theme={theme} checked={darkMode} onChange={handleThemeChange} />
-          </Badge>
-        </ListItemIcon>
-        <ListItemText primary={"Dark Mode"} />
+        <Button component={Link} to="/" onClick={() => {toggleDrawer(); window.location.href = '/'; }} sx={{color: darkMode ? "#fff" : "#000"}}>
+          <ListItemIcon>
+            <Home />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </Button>
       </ListItem>
-    </List>
+      <ListItem>
+        <Button component={Link} to="/catalog" onClick={() => {toggleDrawer(); window.location.href = '/catalog'; }} sx={{color: darkMode ? "#fff" : "#000"}} >
+          <ListItemIcon>
+            <MenuBook />
+          </ListItemIcon>
+          <ListItemText primary="Menu" />
+        </Button>
+      </ListItem>
+      <ListItem>
+        <Button component={Link} to="/contact" onClick={() => {toggleDrawer(); window.location.href = '/contact'; }} sx={{color: darkMode ? "#fff" : "#000"}}>
+          <ListItemIcon>
+            <ContactPhone />
+          </ListItemIcon>
+          <ListItemText primary="Contact" />
+        </Button>
+      </ListItem>
+      {user ? (
+        <ListItem>
+          <Button component={Link} to="/account" onClick={() => {toggleDrawer(); window.location.href = '/account'; }} sx={{color: darkMode ? "#fff" : "#000"}}>
+            <ListItemIcon>
+              <AccountCircle />
+            </ListItemIcon>
+            <ListItemText primary="Account" />
+          </Button>
+        </ListItem>
+      ) : (
+        <ListItem>
+          <Button component={Link} to="/signin" onClick={() => {toggleDrawer(); window.location.href = '/signin'; }} sx={{color: darkMode ? "#fff" : "#000"}}>
+            <ListItemIcon>
+              <Person />
+            </ListItemIcon>
+            <ListItemText primary="Sign In" />
+          </Button>
+        </ListItem>
+      )}
+      <ListItem>
+        <Button onClick={handleThemeChange} sx={{color: darkMode ? "#fff" : "#000"}}>
+          <ListItemIcon>
+            <Badge color='secondary'>
+              <Switch theme={theme} checked={darkMode} />
+            </Badge>
+          </ListItemIcon>
+          <ListItemText primary={"Dark Mode"} />
+        </Button>
+      </ListItem>
+    </List> 
   );
+  
 
   return (
     <AppBar position="static" sx={{ mb: 4 }}>
-      <Toolbar>
-        <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-          <Switch theme={theme} checked={darkMode} onChange={handleThemeChange} sx={{ mr: -5 }} />
-        </Box>
-        <Link style={{ margin: "auto", marginBottom: "30px", marginTop: "30px", color: "#fff", textDecoration: "none" }}  to={"/"}>
+      <Grid container alignItems="center" justifyContent="center" sx={{ bgcolor: "#000", textAlign: "center" }}>
+        <Grid item xs={12}>
           <Typography
             variant="h1"
             component="h1"
             sx={{
               fontSize: {
-                xs: "30px",
-                sm: "40px",
-                md: "50px",
+                xs: "60px",
+                sm: "80px",
+                md: "80px",
               },
+              marginTop: "50px",
+              marginBottom: "20px",
             }}
           >
-            Cocktail Menu
+            Mixer
           </Typography>
-        </Link>
-        <Box display={{ xs: 'none', sm: 'none', md: 'block' }}>
-          <IconButton component={Link} to='/basket' size="large" edge='start' color='inherit' sx={{ mr: 2 }}>
-            <Badge badgeContent={itemCount} color='secondary'>
-              <ShoppingCart sx={{ fontSize: (theme: Theme) => theme.typography.fontSize * 3 }} />
-            </Badge>
-          </IconButton>
-          <IconButton aria-label="Account" color="inherit" onClick={handleClick} size='large'>
-            <Badge color="secondary">
-              <AccountCircle sx={{ fontSize: (theme: Theme) => theme.typography.fontSize * 3 }} />
-            </Badge>
-          </IconButton>
-        </Box>
-        <Box display={{ xs: 'block', sm: 'block', md: 'none' }} sx={{mr: 3}}>
-          <IconButton aria-label="Menu" color="inherit" onClick={toggleDrawer} size='large'>
-            <MenuIcon />
-          </IconButton>
-          <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
-            {drawerContent}
-          </Drawer>
-        </Box>
-        <Box>
-          {user ? (
-            <SignedInMenu anchorEl={DropMenuItem} handleClose={handleClose} user={user} />
-          ) : (
-            <SignedOutMenu anchorEl={DropMenuItem} handleClose={handleClose} />
-          )}
-        </Box>
-      </Toolbar>
+        </Grid>
+        {isSmallScreen ? (
+          <Grid item xs={1} justifyContent="center">
+            <IconButton aria-label="Menu" color="inherit" onClick={toggleDrawer} size='large'>
+              <MenuIcon />
+            </IconButton>
+            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer} sx={{color: darkMode ? "#fff" : "#000" }}>
+              {drawerContent}
+            </Drawer>
+          </Grid>
+        ) : (
+          <Grid item xs={4} sx={{display: "flex", justifyContent: "center"}}>
+            <List sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+              <ListItem>
+                <Link to={"/"} style={{ color: "#fff", textDecoration: "none" }}>
+                  <Typography variant="h5">
+                    Home
+                  </Typography>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to={"/catalog"} style={{ color: "#fff", textDecoration: "none" }}>
+                  <Typography variant="h5">
+                    Menu
+                  </Typography>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to={"/contact"} style={{ color: "#fff", textDecoration: "none" }}>
+                  <Typography variant="h5">
+                    Contact
+                  </Typography>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to={"/basket"} style={{ color: "#fff", textDecoration: "none" }}>
+                  <Typography variant="h5">
+                    Basket
+                  </Typography>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Typography variant="h5" onClick={handleClick} sx={{cursor: "pointer"}}>
+                  Account
+                </Typography>
+              </ListItem>
+            </List>
+          </Grid>
+        )}
+      </Grid>
+      <Box>
+        {user ? (
+          <SignedInMenu anchorEl={DropMenuItem} handleClose={handleClose} user={user} />
+        ) : (
+          <SignedOutMenu anchorEl={DropMenuItem} handleClose={handleClose} />
+        )}
+      </Box>
     </AppBar>
   );
 }
