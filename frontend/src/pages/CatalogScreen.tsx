@@ -26,44 +26,46 @@ const CatalogScreen = () => {
   if (!products) return <NotFound />
 
   return (
-    <Grid container columnSpacing={4} sx={{ width: '100%', maxWidth: 'initial' }}>
-      <Grid item xs={12} md={3}>
-        <Paper sx={{ mb: 2 }}>
-          <ProductSearch />
-        </Paper>
-        <Paper sx={{ mb: 2, p: 2 }}>
-          <RadioButtonGroup
-            selectedValue={productParams.orderBy}
-            options={sortOptions}
-            onChange={(e) => dispatch(setProductParams({ orderBy: e.target.value }))}
-          />
-        </Paper>
-        <Paper sx={{ mb: 2, p: 2 }}>
-          <CheckBoxButtons
-            items={brands}
-            checked={productParams.brands}
-            onChange={(items: string[]) => dispatch(setProductParams({ brands: items }))}
-          />
-        </Paper>
-        <Paper sx={{ mb: 2, p: 2 }}>
-          <CheckBoxButtons
-            items={categories}
-            checked={productParams.categories}
-            onChange={(items: string[]) => dispatch(setProductParams({ categories: items }))}
-          />
-        </Paper>
+    <>
+      <Grid container columnSpacing={4} sx={{ width: '100%', maxWidth: 'initial', padding: "50px" }}>
+        <Grid item xs={12} md={3}>
+          <Paper sx={{ mb: 2 }}>
+            <ProductSearch />
+          </Paper>
+          <Paper sx={{ mb: 2, p: 2 }}>
+            <RadioButtonGroup
+              selectedValue={productParams.orderBy}
+              options={sortOptions}
+              onChange={(e) => dispatch(setProductParams({ orderBy: e.target.value }))}
+            />
+          </Paper>
+          <Paper sx={{ mb: 2, p: 2 }}>
+            <CheckBoxButtons
+              items={brands}
+              checked={productParams.brands}
+              onChange={(items: string[]) => dispatch(setProductParams({ brands: items }))}
+            />
+          </Paper>
+          <Paper sx={{ mb: 2, p: 2 }}>
+            <CheckBoxButtons
+              items={categories}
+              checked={productParams.categories}
+              onChange={(items: string[]) => dispatch(setProductParams({ categories: items }))}
+            />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={9}>
+          <ProductList products={products} />
+        </Grid>
+        <Grid item xs={12} md={9} sx={{ mb: 2, mt: 3 }}>
+          {metaData &&
+            <CustomPagination
+              metaData={metaData}
+              onPageChange={(page: number) => dispatch(setPageNumber({ pageNumber: page }))}
+            />}
+        </Grid>
       </Grid>
-      <Grid item xs={12} md={9}>
-        <ProductList products={products} />
-      </Grid>
-      <Grid item xs={12} md={9} sx={{ mb: 2 }}>
-        {metaData &&
-          <CustomPagination
-            metaData={metaData}
-            onPageChange={(page: number) => dispatch(setPageNumber({ pageNumber: page }))}
-          />}
-      </Grid>
-    </Grid>
+    </>
   )
 }
 
